@@ -1,0 +1,14 @@
+---
+- hosts: Backend
+  tasks:
+    - name: Ensure chrony is installed
+      yum:
+        name: chrony
+        state: present
+- hosts: DB
+  tasks:
+    - name: Ensure httpd is installed
+      become: yes
+      yum:
+        name: httpd
+        state: present
